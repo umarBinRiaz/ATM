@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ATM UI</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATM UI</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="atm-box">
-    <h2>ATM Machine</h2>
-    <h4>Enter Your Pin to Continue</h4>
-    <h4>Enter Your 4-Digit Pin</h4>
-    <div id="login-section">
-      <input type="password" id="pin" placeholder="Enter PIN" />
-      <button onclick="login()">Login</button>
-    </div>
+    <div class="atm-box">
+        <h2>ATM Machine</h2>
+        <h4>Enter Your Pin to Continue</h4>
+        <h4>Enter Your 4-Digit Pin</h4>
+        <div id="login-section">
 
-    <div id="atm-section" class="hidden">
-      <input type="number" id="amount" placeholder="Enter amount" />
+            <input type="password" id="pin" placeholder="Enter PIN">
+            <button onclick="login()">Login</button>
 
-      <button onclick="withdraw()">Withdraw</button>
-      <button onclick="deposit()">Deposit</button>
-      <button onclick="checkBalance()">Check Balance</button>
-      <button onclick="logout()">Logout</button>
-    </div>
+            <br><br>
 
-    <p id="message"></p>
-  </div>
-  <script src="script.js"></script>
+            <input type="number" id="amount" placeholder="Enter Amount">
+
+            <button onclick="withdraw()">Withdraw</button>
+            <button onclick="deposit()">Deposit</button>
+            <button onclick="checkBalance()">Check Balance</button>
+            <button onclick="logout()">Logout</button>
+
+            <p id="message"></p>
+        </div>
+        <script src="script.js"></script>
 </body>
+
 </html>
