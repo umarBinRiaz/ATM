@@ -1,54 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATM UI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+  <div class="atm-box">
+    <h2>ATM Machine</h2>
+    <h4>Enter Your Pin to Continue</h4>
+    <h4>Enter Your 4-Digit Pin</h4>
+    <div id="login-section">
+      <input type="password" id="pin" placeholder="Enter PIN" />
+      <button onclick="login()">Login</button>
+    </div>
 
-    <script>
+    <div id="atm-section" class="hidden">
+      <input type="number" id="amount" placeholder="Enter amount" />
 
-        var pin = 3600;
-        var userPin = prompt("Enter your PIN:");
+      <button onclick="withdraw()">Withdraw</button>
+      <button onclick="deposit()">Deposit</button>
+      <button onclick="checkBalance()">Check Balance</button>
+      <button onclick="logout()">Logout</button>
+    </div>
 
-        var balance = 10000.43;
-
-        if (userPin == pin) {
-            var choice = prompt("What do you want to do? withdraw, deposit, check balance ");
-
-            if (choice == "withdraw") {
-                var amount = +(prompt("Enter amount to withdraw:"));
-
-                balance = balance - amount;
-
-                console.log("Withdraw Successful");
-                console.log("Remaining Balance: " + balance);
-
-            } else if (choice == "deposit") {
-                var amount = Number(prompt("Enter amount to deposit:"));
-
-                balance = balance + amount;
-
-                console.log("Deposit Successful");
-                console.log("New Balance: " + balance);
-
-            } else if (choice == "check balance") {
-                console.log("Your Current Balance: " + balance);
-
-            } else {
-                console.log("Invalid Choice");
-            }
-
-        } else {
-            console.log("Wrong PIN");
-        }
-
-   
-    </script>
+    <p id="message"></p>
+  </div>
+  <script src="script.js"></script>
 </body>
-
 </html>
