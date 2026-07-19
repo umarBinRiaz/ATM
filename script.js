@@ -1,54 +1,67 @@
-var pin = 3600;
-var balance = 10000.43;
+var account = {
+    pin: 3600,
+    balance: 10000.43
+};
 
 function login() {
-    var userPin = document.getElementById("pin").value;
 
-    if (userPin == pin) {
-        document.getElementById("login-section").classList.add("hidden");
-        document.getElementById("atm-section").classList.remove("hidden");
-        document.getElementById("message").innerText = "Login successful";
+    var userPin = Number(document.getElementById("pin").value);
+    var message = document.getElementById("message");
+
+    if (userPin === account.pin) {
+        message.innerHTML = "Login Successful";
+        message.style.color = "green";
     } else {
-        document.getElementById("message").innerText = "Wrong PIN";
-        Document.getElementById("message")
+        message.innerHTML = "Wrong PIN";
+        message.style.color = "red";
     }
 }
 
 function withdraw() {
-    var amount = Number(document.getElementById("amount").value);
 
-    if (amount > 0 && amount <= balance) {
-        balance -= amount;
-        document.getElementById("message").innerText =
-            "Withdraw successful. Remaining balance: " + balance.toFixed(2);
+    var amount = Number(document.getElementById("amount").value);
+    var message = document.getElementById("message");
+
+    if (amount <= account.balance) {
+
+        account.balance -= amount;
+
+        message.innerHTML = "Withdraw Successful <br>Remaining Balance: " + account.balance;
+        message.style.color = "green";
+
     } else {
-        document.getElementById("message").innerText =
-            "Insufficient balance or invalid amount";
+
+        message.innerHTML = "Insufficient Balance";
+        message.style.color = "red";
     }
 }
 
 function deposit() {
-    var amount = Number(document.getElementById("amount").value);
 
-    if (amount > 0) {
-        balance += amount;
-        document.getElementById("message").innerText =
-            "Deposit successful. New balance: " + balance.toFixed(2);
-    } else {
-        document.getElementById("message").innerText = "Invalid amount";
-    }
+    var amount = Number(document.getElementById("amount").value);
+    var message = document.getElementById("message");
+
+    account.balance += amount;
+
+    message.innerHTML = "Deposit Successful <br>Balance: " + account.balance;
+    message.style.color = "green";
 }
 
 function checkBalance() {
-    document.getElementById("message").innerText =
-        "Current balance: " + balance.toFixed(2);
+
+    var message = document.getElementById("message");
+
+    message.innerHTML = "Current Balance: " + account.balance;
+    message.style.color = "blue";
 }
 
 function logout() {
-    document.getElementById("atm-section").classList.add("hidden");
-    document.getElementById("login-section").classList.remove("hidden");
+
     document.getElementById("pin").value = "";
     document.getElementById("amount").value = "";
-    document.getElementById("message").innerText =
-        "You have been logged out";
+
+    var message = document.getElementById("message");
+
+    message.innerHTML = "Logged Out Successfully";
+    message.style.color = "orange";
 }
